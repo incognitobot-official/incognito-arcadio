@@ -1,0 +1,96 @@
+@font-face {
+    font-family: "Pixel";
+    src: url("../../press-start-2p.woff2") format("woff2");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('assets/sea.png');
+    background-size: cover;
+    background-position: center;
+    font-family: "Pixel", sans-serif;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.pixel-font {
+    font-family: "Pixel", sans-serif;
+    text-shadow: 2px 2px 5px black;
+}
+
+#main-menu,
+#end-screen {
+    text-align: center;
+}
+
+button {
+    background-color: #8B4513;
+    color: white;
+    border: 2px solid black;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 5px;
+    font-family: "Pixel", sans-serif;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #A0522D;
+}
+
+#game-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#game-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    z-index: 10;
+}
+
+.description {
+    font-family: 'Pixel', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(45deg, #ff6b6b, #f7c8b0, #48c9b0, #f7c8b0);
+    background-size: 400% 400%; 
+    -webkit-background-clip: text; 
+    color: transparent; 
+    animation: gradientAnimation 4s ease infinite; 
+}
+
+/* Define the keyframes for the gradient animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

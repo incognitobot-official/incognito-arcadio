@@ -10,4 +10,3 @@ All recreated games in the theme of HighSeas and pirates, etc.
 - Sea Chase (Pacman)
 
 - Ready, Aim, Fire! (Archery)
-- 
