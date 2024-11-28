@@ -5,8 +5,11 @@ All recreated games in the theme of HighSeas and pirates, etc.
 
 ## List of all games:
 - Cannonpong (Pong)
-- Convoys (Snake)
-- Sea Battle (Space Invaders)
-- Sea Chase (Pacman)
 
-- Ready, Aim, Fire! (Archery)
+## COMING SOON:
+- Convoys (Snake)
+- Rogue Pirates (Space Invaders)
+- Pirate Booty Chase (Pacman)
+- AND MORE!
+
+![alt preview](https://github.com/incognitobot-official/highseas-arcade/blob/main/preview.png?raw=true)
