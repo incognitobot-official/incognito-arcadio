@@ -1,92 +1,139 @@
+/* Font Import */
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('press-start-2p.woff2') format('woff2');
+}
+
 /* General Styles */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-h1, h3 {
-    margin: 0;
+    font-family: 'Press Start 2P', sans-serif;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    line-height: 1.5;
 }
 
 /* Header */
 .header {
-    background-color: #333;
-    color: #fff;
+    background-color: #000;
+    color: white;
     text-align: center;
-    padding: 20px 10px;
+    padding: 30px 10px;
+    border-bottom: 3px solid white;
+    box-shadow: 0 4px 12px white;
+}
+
+.header h1 {
+    font-size: 48px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+    animation: neon 1.5s ease-in-out infinite alternate;
 }
 
 .header p {
-    margin: 5px 0 0;
     font-size: 18px;
+    margin: 5px 0 0;
+}
+
+/* Neon Glow Animation */
+@keyframes neon {
+    0% {
+        text-shadow: 0 0 5px cyan, 0 0 10px pink, 0 0 20px lime;
+    }
+    100% {
+        text-shadow: 0 0 10px yellow, 0 0 20px orange, 0 0 30px violet;
+    }
 }
 
 /* Main Content */
 .game-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 30px;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* Cards */
 .card {
-    background: #fff;
-    border: 1px solid #ddd;
+    background: #111;
+    border: 2px solid cyan;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    box-shadow: 0 4px 10px cyan;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding: 15px;
-    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px cyan;
 }
 
 .card-image {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    height: 200px;
+    object-fit: fill;
+    border: 2px solid cyan;
 }
 
 .card-title {
-    font-size: 20px;
-    margin: 15px 0;
-    color: #333;
+    font-size: 15px;
+    color: cyan;
+    margin: 15px 0 5px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .card-description {
-    font-size: 16px;
+    font-size: 10px;
+    color: #ccc;
     margin: 0 0 15px;
-    color: #666;
+    line-height: 2;
 }
 
 .card-button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
+    background-color: cyan;
+    color: #000;
+    border: 2px solid cyan;
+    padding: 12px 30px;
     border-radius: 5px;
-    cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .card-button:hover {
-    background-color: #555;
+    background-color: white;
+    color: #000;
+    border-color: white;
+    box-shadow: 0 0 10px white, 0 0 20px white;
 }
 
 /* Footer */
 .footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #000;
+    color: white;
     text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
+    padding: 15px 0;
+    margin-top: 30px;
+    border-top: 3px solid white;
+    font-size: 10px;
+    letter-spacing: 1px;
+    line-height: 2;
+}
+
+/* Glow Animation for Hover */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+    }
+    100% {
+        text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+    }
 }

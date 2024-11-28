@@ -8,6 +8,7 @@ const endMessage = document.getElementById("end-message");
 const restartButton = document.getElementById("restart-button");
 const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");
+const returnbutton = document.getElementById("return-home-btn");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -41,6 +42,7 @@ playButton.addEventListener("click", () => {
     gameScreen.classList.remove("hidden");
     initGame();
     gameLoop();
+    returnbutton.classList.add("hidden");
 });
 
 // Keyboard controls
@@ -161,6 +163,7 @@ function gameLoop() {
 function endGame() {
     gameScreen.classList.add("hidden");
     endScreen.classList.remove("hidden");
+    returnbutton.classList.remove("hidden");
     endMessage.textContent = leftScore > rightScore ? "You Win!" : "You Lose!";
 }
 

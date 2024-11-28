@@ -94,3 +94,31 @@ button:hover {
         background-position: 0% 50%;
     }
 }
+
+/* Style for the Return to Home Button in Top Left Corner */
+#return-home-btn {
+    font-family: 'Pixel', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 12px 24px;
+    background-color: #ff6b6b;  /* Button color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;  /* Remove underline */
+    position: absolute;  /* Position it absolutely */
+    top: 10px;  /* Distance from the top of the screen */
+    left: 10px;  /* Distance from the left of the screen */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#return-home-btn:hover {
+    background-color: #f7c8b0;  /* Hover color */
+    transform: scale(1.1);  /* Slightly grow the button on hover */
+}
+
+#return-home-btn:active {
+    background-color: #ff6b6b;  /* Pressed color */
+    transform: scale(0.95);  /* Button slightly shrinks when pressed */
+}
+
