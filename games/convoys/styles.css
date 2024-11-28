@@ -1,0 +1,76 @@
+@font-face {
+    font-family: "Pixel";
+    src: url("../../press-start-2p.woff2") format("woff2");
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pixel', sans-serif;
+    background: url('sea.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+h1, p {
+    font-family: 'Pixel', sans-serif;
+}
+
+.title {
+    font-size: 48px;
+    text-align: center;
+}
+
+.description {
+    font-size: 24px;
+    text-align: center;
+    margin: 20px;
+}
+
+button {
+    font-family: 'Pixel', sans-serif;
+    font-size: 20px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #f7c8b0;
+}
+
+button:active {
+    background-color: #ff6b6b;
+}
+
+/* Canvas */
+.game-canvas {
+    display: block;
+    border: 2px solid #fff;
+    background: url('sea.png') no-repeat center center;
+    background-size: cover;
+}
+
+/* End Screen */
+.end-screen {
+    text-align: center;
+    padding: 20px;
+}
+
+.end-screen button {
+    margin-top: 20px;
+}

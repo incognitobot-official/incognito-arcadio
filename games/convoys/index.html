@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High Seas Snake Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="menu" class="menu">
+        <h1 class="title">High Seas Snake</h1>
+        <div class="description">Collect ships to grow your fleet!</div>
+        <div class="options">
+            <button onclick="startGame(1)">Start with 1 Ship</button>
+            <button onclick="startGame(3)">Start with 3 Ships</button>
+            <button onclick="startGame(5)">Start with 5 Ships</button>
+        </div>
+    </div>
+    
+    <canvas id="gameCanvas" class="game-canvas"></canvas>
+
+    <div id="endScreen" class="end-screen" style="display: none;">
+        <h1>Game Over</h1>
+        <p id="score">Score: 0</p>
+        <button onclick="returnToMenu()">Return to Menu</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
