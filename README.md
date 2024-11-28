@@ -1,7 +1,7 @@
 # HighSeas Arcade
-Follow me as I compile an online collection of classic arcade games recreated by me
+Your favorite classic arcade games redesigned! 
 
-All recreated games in the theme of HighSeas and pirates, etc.
+**THEME:** High Seas / Pirates
 
 ## List of all games:
 - Cannonpong (Pong)
