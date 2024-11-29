@@ -1,139 +1,171 @@
-let grid = [];
+const options = document.querySelectorAll(".option");
+const mainMenu = document.getElementById("main-menu");
+const gameContainer = document.getElementById("game-container");
+const gameBoard = document.getElementById("game-board");
+const messageOverlay = document.getElementById("message-overlay");
+const messageText = document.getElementById("message-text");
+const returnbutton = document.getElementById("return-home-btn");
+let gridSize = 8;
+let mineCount = 0;
+let tiles = [];
 let mines = [];
-let revealedCount = 0;
-let gridSize = 10;
-let totalMines = 20;
-let gameStatus = "inProgress";  // "inProgress", "won", "lost"
 
-// Function to start a new game
-function startGame() {
-    grid = [];
+options.forEach(option => {
+    option.addEventListener("click", () => {
+        gridSize = parseInt(option.dataset.size);
+        startGame(gridSize);
+    });
+});
+
+function startGame(size) {
+    mainMenu.classList.add("hidden");
+    returnbutton.classList.add("hidden");
+    messageOverlay.classList.add("hidden"); // Ensure overlay is hidden when game starts
+    gameContainer.classList.remove("hidden");
+    generateBoard(size);
+    firstClick = true; // Reset first-click logic
+}
+
+function generateBoard(size) {
+    gameBoard.innerHTML = "";
+    gameBoard.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+    gameBoard.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    tiles = Array.from({ length: size * size }, (_, i) => {
+        const tile = document.createElement("div");
+        tile.classList.add("tile");
+        tile.dataset.index = i;
+        tile.addEventListener("click", () => handleTileClick(tile, i));
+        gameBoard.appendChild(tile);
+        return tile;
+    });
+}
+
+function placeMines(size) {
     mines = [];
-    revealedCount = 0;
-    gameStatus = "inProgress";
-    document.getElementById('status').innerText = 'Game in Progress';
-    
-    const gameGrid = document.getElementById('gameGrid');
-    gameGrid.innerHTML = '';
-    
-    // Create grid
-    for (let row = 0; row < gridSize; row++) {
-        let rowArray = [];
-        for (let col = 0; col < gridSize; col++) {
-            let cell = {
-                row: row,
-                col: col,
-                revealed: false,
-                mine: false,
-                flagged: false,
-                adjacentMines: 0
-            };
-            rowArray.push(cell);
-        }
-        grid.push(rowArray);
+    const mineTotal = Math.floor(size * size * 0.15); // 15% of the board will be mines
+    while (mines.length < mineTotal) {
+        const index = Math.floor(Math.random() * (size * size));
+        if (!mines.includes(index)) mines.push(index);
     }
-    
-    // Place mines
-    while (mines.length < totalMines) {
-        let row = Math.floor(Math.random() * gridSize);
-        let col = Math.floor(Math.random() * gridSize);
-        
-        if (!grid[row][col].mine) {
-            grid[row][col].mine = true;
-            mines.push({ row, col });
-        }
+    mineCount = mineTotal;
+}
+
+let firstClick = true; // Track if this is the first click
+
+function handleTileClick(tile, index) {
+    if (tile.classList.contains("clicked")) return;
+
+    // Ensure safe first click
+    if (firstClick) {
+        firstClick = false;
+        placeMinesAfterFirstClick(index);
+        revealEmptyTiles(index);
+        return;
     }
-    
-    // Calculate adjacent mines for each cell
-    for (let row = 0; row < gridSize; row++) {
-        for (let col = 0; col < gridSize; col++) {
-            if (!grid[row][col].mine) {
-                grid[row][col].adjacentMines = countAdjacentMines(row, col);
-            }
-        }
-    }
-    
-    // Display grid
-    for (let row = 0; row < gridSize; row++) {
-        for (let col = 0; col < gridSize; col++) {
-            let cellElement = document.createElement('div');
-            cellElement.classList.add('grid-cell');
-            cellElement.dataset.row = row;
-            cellElement.dataset.col = col;
-            cellElement.addEventListener('click', handleCellClick);
-            cellElement.addEventListener('contextmenu', handleCellRightClick);
-            gameGrid.appendChild(cellElement);
+
+    tile.classList.add("clicked");
+
+    if (mines.includes(index)) {
+        // Show dirt background and crab
+        tile.classList.add("mine");
+        tile.style.backgroundImage = "assets/dirt.png";
+        tile.style.backgroundSize = "cover, contain";
+        tile.style.backgroundPosition = "center";
+        endGame("You hit a crab!");
+    } else {
+        const surroundingMines = countSurroundingMines(index);
+        if (surroundingMines > 0) {
+            tile.textContent = surroundingMines;
+            tile.style.color = getNumberColor(surroundingMines);
+            tile.style.textShadow = `2px 2px 1px black`;
+        } else {
+            revealEmptyTiles(index);
         }
     }
 }
 
-// Function to count adjacent mines for a cell
-function countAdjacentMines(row, col) {
-    let count = 0;
-    for (let i = -1; i <= 1; i++) {
-        for (let j = -1; j <= 1; j++) {
-            let newRow = row + i;
-            let newCol = col + j;
-            if (newRow >= 0 && newRow < gridSize && newCol >= 0 && newCol < gridSize) {
-                if (grid[newRow][newCol].mine) {
-                    count++;
+function getNumberColor(number) {
+    // Map numbers to specific colors
+    const colors = {
+        1: "dodgerblue",
+        2: "limegreen",
+        3: "red",
+        4: "darkblue",
+        5: "darkred",
+        6: "darkcyan",
+        7: "black",
+        8: "grey",
+    };
+    return colors[number] || "white"; // Default to white if not specified
+}
+
+function placeMinesAfterFirstClick(firstIndex) {
+    mines = [];
+    const totalMines = Math.floor(gridSize * gridSize * 0.15); // 15% of tiles are mines
+    const firstClickNeighbors = new Set(getNeighbors(firstIndex));
+    firstClickNeighbors.add(firstIndex); // Include the clicked tile itself
+
+    while (mines.length < totalMines) {
+        const index = Math.floor(Math.random() * (gridSize * gridSize));
+        if (!mines.includes(index) && !firstClickNeighbors.has(index)) {
+            mines.push(index);
+        }
+    }
+}
+
+
+function countSurroundingMines(index) {
+    const neighbors = getNeighbors(index);
+    return neighbors.filter(i => mines.includes(i)).length;
+}
+
+function getNeighbors(index) {
+    const row = Math.floor(index / gridSize);
+    const col = index % gridSize;
+    const neighbors = [];
+    for (let dr = -1; dr <= 1; dr++) {
+        for (let dc = -1; dc <= 1; dc++) {
+            if (dr === 0 && dc === 0) continue;
+            const r = row + dr;
+            const c = col + dc;
+            if (r >= 0 && r < gridSize && c >= 0 && c < gridSize) {
+                neighbors.push(r * gridSize + c);
+            }
+        }
+    }
+    return neighbors;
+}
+
+function revealEmptyTiles(index) {
+    const queue = [index];
+    while (queue.length > 0) {
+        const current = queue.pop();
+        const neighbors = getNeighbors(current);
+        neighbors.forEach(i => {
+            const tile = tiles[i];
+            if (!tile.classList.contains("clicked") && !mines.includes(i)) {
+                tile.classList.add("clicked");
+                const surroundingMines = countSurroundingMines(i);
+                if (surroundingMines > 0) {
+                    tile.textContent = surroundingMines;
+                    tile.style.color = getNumberColor(surroundingMines);
+                    tile.style.textShadow = `2px 2px 1px black`;
+                } else {
+                    queue.push(i);
                 }
             }
-        }
-    }
-    return count;
-}
-
-// Function to handle left click (reveal cell)
-function handleCellClick(event) {
-    const row = event.target.dataset.row;
-    const col = event.target.dataset.col;
-    
-    if (grid[row][col].revealed || grid[row][col].flagged) return;
-    
-    grid[row][col].revealed = true;
-    revealedCount++;
-    event.target.classList.add('revealed');
-    
-    if (grid[row][col].mine) {
-        gameStatus = "lost";
-        event.target.classList.add('mine');
-        document.getElementById('status').innerText = 'Game Over! You hit a mine!';
-        revealAllMines();
-    } else {
-        event.target.innerText = grid[row][col].adjacentMines || '';
-        if (revealedCount === (gridSize * gridSize - totalMines)) {
-            gameStatus = "won";
-            document.getElementById('status').innerText = 'Congratulations! You won!';
-        }
+        });
     }
 }
 
-// Function to handle right click (flag cell)
-function handleCellRightClick(event) {
-    event.preventDefault();
-    
-    const row = event.target.dataset.row;
-    const col = event.target.dataset.col;
-    
-    if (grid[row][col].revealed) return;
-    
-    grid[row][col].flagged = !grid[row][col].flagged;
-    event.target.classList.toggle('flagged');
-}
 
-// Function to reveal all mines (when the game ends)
-function revealAllMines() {
-    const gameGrid = document.getElementById('gameGrid');
-    for (let row = 0; row < gridSize; row++) {
-        for (let col = 0; col < gridSize; col++) {
-            if (grid[row][col].mine) {
-                const cellElement = gameGrid.children[row * gridSize + col];
-                cellElement.classList.add('mine');
-            }
-        }
-    }
+function endGame(message) {
+    messageText.textContent = message;
+    returnbutton.classList.remove("hidden");
+    messageOverlay.classList.remove("hidden"); // Show overlay
+    const restartButton = document.createElement("button");
+    restartButton.textContent = "Restart";
+    restartButton.classList.add("option");
+    restartButton.addEventListener("click", () => location.reload()); // Reload page
+    messageOverlay.appendChild(restartButton);
 }
-
-// Initialize the game
-startGame();

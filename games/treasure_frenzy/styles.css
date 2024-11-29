@@ -1,75 +1,183 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #1e1e1e;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+@font-face {
+    font-family: "Pixel";
+    src: url("../../press-start-2p.woff2") format("woff2");
 }
 
-.container {
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('assets/sea.png');
+    background-size: cover;
+    background-position: center;
+    font-family: "Pixel", sans-serif;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.pixel-font {
+    font-family: "Pixel", sans-serif;
+    text-shadow: 2px 2px 5px black;
+}
+
+#main-menu {
     text-align: center;
 }
 
-h1 {
-    color: #fff;
-    font-size: 3rem;
-}
-
-.game-info {
-    margin-bottom: 20px;
-}
-
-.reset-button {
-    background-color: #f39c12;
-    border: none;
-    color: #fff;
+button {
+    background-color: #8B4513;
+    color: white;
+    border: 2px solid black;
     padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.reset-button:hover {
-    background-color: #e67e22;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(10, 30px);
-    grid-gap: 2px;
-    justify-content: center;
-}
-
-.grid-cell {
-    width: 30px;
-    height: 30px;
-    background-color: #34495e;
-    border: 1px solid #2c3e50;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 16px;
-    color: transparent;
-}
-
-.grid-cell.revealed {
-    background-color: #95a5a6;
-    color: #2c3e50;
-}
-
-.grid-cell.mine {
-    background-color: red;
-}
-
-.grid-cell.flagged {
-    background-color: #16a085;
-}
-
-#status {
     font-size: 1.2rem;
-    margin-top: 10px;
+    cursor: pointer;
+    margin: 5px;
+    font-family: "Pixel", sans-serif;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #A0522D;
+}
+
+#game-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh; /* Ensure it occupies the full screen height */
+    overflow: hidden;
+}
+
+#game-board {
+    display: grid;
+    border: 2px solid black;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+}
+
+
+.tile {
+    width: 40px;
+    height: 40px;
+    background-image: url('assets/sand.png');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+}
+
+.tile.clicked {
+    background-image: url('assets/dirt.png'); /* Default to dirt background */
+}
+
+.tile.mine {
+    background-image:  url('assets/crab.png');
+    background-size: cover, contain;
+    background-position: center;
+}
+
+.description {
+    font-family: 'Pixel', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(45deg, #ffea5e, #ffd877, #ffae18, #fffdd3);
+    background-size: 400% 400%; 
+    -webkit-background-clip: text; 
+    color: transparent; 
+    line-height: 2;
+    animation: gradientAnimation 4s ease infinite; 
+}
+
+/* Define the keyframes for the gradient animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+#message-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+}
+
+#message-overlay button {
+    background-color: #8B4513;
+    color: white;
+    border: 2px solid black;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-family: "Pixel", sans-serif;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+#message-overlay button:hover {
+    background-color: #A0522D;
+}
+
+
+.hidden {
+    display: none !important; /* Ensure it overrides other display rules */
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+#return-home-btn {
+    font-family: 'Pixel', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 12px 24px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 20;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#return-home-btn:hover {
+    background-color: #f7c8b0;
+    transform: scale(1.1);
+}
+
+#return-home-btn:active {
+    background-color: #ff6b6b;
+    transform: scale(0.95);
 }

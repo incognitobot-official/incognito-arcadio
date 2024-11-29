@@ -3,19 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minesweeper - High Seas Arcade</title>
+    <title>Minesweeper</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Minesweeper</h1>
-        <div class="game-info">
-            <button class="reset-button" onclick="startGame()">Start New Game</button>
-            <p id="status">Game in Progress</p>
+    <a href="../../index.html" id="return-home-btn" class="">Home</a>
+    <div id="main-menu">
+        <h1 class="pixel-font">Treasure Frenzy</h1>
+        <p class="description">Treasure awaits beneath the sand,<br>But avoid the clickety crabs!<br>Can you find all the treasure while staying alive?</p>
+        <div id="options">
+            <h2 class="pixel-font">Game Options</h2>
+            <button class="option" data-size="8">Easy (8x8)</button>
+            <button class="option" data-size="12">Normal (12x12)</button>
+            <button class="option" data-size="16">Hard (16x16)</button>
         </div>
-        <div class="grid-container" id="gameGrid"></div>
     </div>
-    
+    <div id="game-container" class="hidden">
+        <div id="game-board"></div>
+        <div id="message-overlay" class="hidden">
+            <h1 id="message-text" class="pixel-font"></h1>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
