@@ -8,6 +8,7 @@ Your favorite classic arcade games redesigned!
 - Convoys (Snake)
 
 ## COMING SOON:
+- Treasure Frenzy (Minesweeper)
 - Rogue Pirates (Space Invaders)
 - Pirate Booty Chase (Pacman)
 - AND MORE!
