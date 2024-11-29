@@ -17,6 +17,9 @@ options.forEach(option => {
     });
 });
 
+let revealedCount = 0;  // Track revealed non-mine tiles
+let totalSafeTiles = 0;  // Total number of non-mine tiles
+
 function startGame(size) {
     mainMenu.classList.add("hidden");
     returnbutton.classList.add("hidden");
@@ -24,6 +27,8 @@ function startGame(size) {
     gameContainer.classList.remove("hidden");
     generateBoard(size);
     firstClick = true; // Reset first-click logic
+    revealedCount = 0; // Reset the revealed count
+    totalSafeTiles = size * size - Math.floor(size * size * 0.15); // Total safe tiles (non-mine)
 }
 
 function generateBoard(size) {
@@ -53,6 +58,7 @@ function placeMines(size) {
 let firstClick = true; // Track if this is the first click
 
 function handleTileClick(tile, index) {
+    console.log(revealedCount + " " + totalSafeTiles);
     if (tile.classList.contains("clicked")) return;
 
     // Ensure safe first click
@@ -62,7 +68,7 @@ function handleTileClick(tile, index) {
         revealEmptyTiles(index);
         return;
     }
-
+    revealedCount++;
     tile.classList.add("clicked");
 
     if (mines.includes(index)) {
@@ -81,6 +87,10 @@ function handleTileClick(tile, index) {
         } else {
             revealEmptyTiles(index);
         }
+    }
+
+    if (revealedCount === totalSafeTiles) {
+        endGame("You Win! All treasures found!");
     }
 }
 
@@ -145,6 +155,7 @@ function revealEmptyTiles(index) {
             const tile = tiles[i];
             if (!tile.classList.contains("clicked") && !mines.includes(i)) {
                 tile.classList.add("clicked");
+                revealedCount++;
                 const surroundingMines = countSurroundingMines(i);
                 if (surroundingMines > 0) {
                     tile.textContent = surroundingMines;
