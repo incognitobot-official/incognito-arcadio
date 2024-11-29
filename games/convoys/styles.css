@@ -3,74 +3,121 @@
     src: url("../../press-start-2p.woff2") format("woff2");
 }
 
-/* Basic Reset */
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Pixel', sans-serif;
-    background: url('sea.png') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('assets/sea.png');
+    background-size: cover;
+    background-position: center;
+    font-family: "Pixel", sans-serif;
+    color: white;
 }
 
-h1, p {
-    font-family: 'Pixel', sans-serif;
+.hidden {
+    display: none;
 }
 
-.title {
-    font-size: 48px;
+.pixel-font {
+    font-family: "Pixel", sans-serif;
+    text-shadow: 2px 2px 5px black;
+}
+
+#main-menu,
+#end-screen {
     text-align: center;
-}
-
-.description {
-    font-size: 24px;
-    text-align: center;
-    margin: 20px;
 }
 
 button {
-    font-family: 'Pixel', sans-serif;
-    font-size: 20px;
-    background-color: #ff6b6b;
+    background-color: #8b7f13;
     color: white;
-    border: none;
+    border: 2px solid black;
     padding: 10px 20px;
+    font-size: 1.2rem;
     cursor: pointer;
-    border-radius: 5px;
-    margin: 10px;
+    margin: 5px;
+    font-family: "Pixel", sans-serif;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #f7c8b0;
+    background-color: #a08d2d;
 }
 
-button:active {
-    background-color: #ff6b6b;
+#game-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-/* Canvas */
-.game-canvas {
+#game-canvas {
     display: block;
-    border: 2px solid #fff;
-    background: url('sea.png') no-repeat center center;
-    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background: transparent;
 }
 
-/* End Screen */
-.end-screen {
+#score {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    z-index: 10;
+}
+
+.description {
+    font-family: 'Pixel', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
     text-align: center;
-    padding: 20px;
+    background: linear-gradient(45deg, #ee6bff, #f7c8b0, #48c959, #f7c8b0);
+    background-size: 400% 400%; 
+    -webkit-background-clip: text; 
+    color: transparent; 
+    animation: gradientAnimation 4s ease infinite; 
 }
 
-.end-screen button {
-    margin-top: 20px;
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
+
+/* Style for the Return to Home Button in Top Left Corner */
+#return-home-btn {
+    font-family: 'Pixel', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 12px 24px;
+    background-color: #ff6b6b;  
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    position: absolute;  
+    top: 10px;  
+    left: 10px;  
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#return-home-btn:hover {
+    background-color: #f7c8b0;  
+    transform: scale(1.1);  
+}
+
+#return-home-btn:active {
+    background-color: #ff6b6b;  
+    transform: scale(0.95);  
+}
+

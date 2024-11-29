@@ -5,9 +5,9 @@ Your favorite classic arcade games redesigned!
 
 ## List of all games:
 - Cannonpong (Pong)
+- Convoys (Snake)
 
 ## COMING SOON:
-- Convoys (Snake)
 - Rogue Pirates (Space Invaders)
 - Pirate Booty Chase (Pacman)
 - AND MORE!
@@ -65,13 +65,13 @@ Your favorite classic arcade games redesigned!
 - Storm the High Seas (Pac-Man)
 - Pirate's Path (Qix)
 - Treasure Hunt (Frogger)
-- Pirate’s Plunder (Space Invaders)
+- Pirate's Plunder (Space Invaders)
 - Raiders of the Seven Seas (Missile Command)
 - The Pirate's Maze (Dig Dug)
 - Shipwreck Scavenger (Breakout)
-- Captain’s Glory (Scramble)
+- Captain's Glory (Scramble)
 - Pirate Fury (Asteroids)
-- Galleon’s Gold (Q*bert)
+- Galleon's Gold (Q*bert)
 - The Black Flag (Lunar Lander)
 - Pirate Escape (Frogger II)
 - Treasure Seeker (Pitfall)
@@ -80,7 +80,7 @@ Your favorite classic arcade games redesigned!
 - Pirate King's Fortune (Space Invaders Deluxe)
 - Sailing to Glory (Galaga)
 - Treasure Isle (Breakout)
-- Sailor’s Bounty (Tank Battalion)
+- Sailor's Bounty (Tank Battalion)
 - Shark's Revenge (Xevious)
 - Ship of Lost Souls (Robotron: 2084)
 - Sea Monster Chase (Pole Position)
@@ -109,7 +109,7 @@ Your favorite classic arcade games redesigned!
 - Captain's Treasure (Tank Battalion)
 - The Pirate King's Curse (Qix)
 - Black Flag Treasure (Mappy)
-- Pirate’s Fury (Frogger)
+- Pirate's Fury (Frogger)
 - Sea of Gold (Centipede)
 
 (its here for my own sake)

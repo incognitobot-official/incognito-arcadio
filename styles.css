@@ -21,7 +21,10 @@ body {
     text-align: center;
     padding: 30px 10px;
     border-bottom: 3px solid white;
-    box-shadow: 0 4px 12px white;
+    animation: pulse 1s infinite alternate;
+            box-shadow: 0 0 15px rgba(52, 152, 219, 1),
+                        0 0 30px rgba(52, 152, 219, 0.7),
+                        0 0 50px rgba(52, 152, 219, 0.5);
 }
 
 .header h1 {
@@ -35,6 +38,7 @@ body {
 .header p {
     font-size: 18px;
     margin: 5px 0 0;
+    animation: neon 1.5s ease-in-out infinite alternate;
 }
 
 /* Neon Glow Animation */
@@ -69,8 +73,8 @@ body {
 }
 
 .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 20px cyan;
+    transform: scale(1.10);
+    box-shadow: 0 4px 50px lightblue;
 }
 
 .card-image {
@@ -93,7 +97,28 @@ body {
     color: #ccc;
     margin: 0 0 15px;
     line-height: 2;
+    background: linear-gradient(45deg, 
+        #ffb3ba, #ffdfba, #ffffba, #baffc9, #bae1ff, #d4baff, 
+        #ffb3ba, #ffdfba, #ffffba, #baffc9, #bae1ff, #d4baff, 
+        #ffb3ba, #ffdfba, #ffffba, #baffc9, #bae1ff, #d4baff, 
+        #ffb3ba, #ffdfba, #ffffba, #baffc9, #bae1ff, #d4baff);
+    background-size: 300% 300%; 
+    -webkit-background-clip: text; 
+    color: transparent; 
+    animation: gradientAnimation 6s linear infinite; 
 }
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+
+
 
 .card-button {
     background-color: cyan;
@@ -106,6 +131,8 @@ body {
     transition: all 0.3s ease;
     text-transform: uppercase;
     font-weight: bold;
+    position: relative;
+    bottom: 0%;
 }
 
 .card-button:hover {
@@ -126,14 +153,25 @@ body {
     font-size: 10px;
     letter-spacing: 1px;
     line-height: 2;
+    animation: pulse 1s infinite alternate;
+            box-shadow: 0 0 15px rgba(52, 152, 219, 1),
+                        0 0 30px rgba(52, 152, 219, 0.7),
+                        0 0 50px rgba(52, 152, 219, 0.5);
 }
 
-/* Glow Animation for Hover */
-@keyframes glow {
+@keyframes pulse {
     0% {
-        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+        box-shadow: 0 0 15px rgba(52, 152, 219, 1),
+                    0 0 30px rgba(52, 152, 219, 0.8),
+                    0 0 50px rgba(52, 152, 219, 0.4);
     }
     100% {
-        text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+        box-shadow: 0 0 25px rgba(52, 152, 219, 1),
+                    0 0 50px rgba(52, 152, 219, 0.8),
+                    0 0 75px rgba(52, 152, 219, 0.3);
     }
+}
+
+.footer p{
+    animation: neon 1.5s ease-in-out infinite alternate;
 }

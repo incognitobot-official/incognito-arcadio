@@ -3,28 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>High Seas Snake Game</title>
+    <title>Convoys</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="menu" class="menu">
-        <h1 class="title">High Seas Snake</h1>
-        <div class="description">Collect ships to grow your fleet!</div>
-        <div class="options">
-            <button onclick="startGame(1)">Start with 1 Ship</button>
-            <button onclick="startGame(3)">Start with 3 Ships</button>
-            <button onclick="startGame(5)">Start with 5 Ships</button>
+    <a href="../../index.html" id="return-home-btn" class="">Home</a>
+
+    <div id="main-menu">
+        <h1 class="pixel-font">Convoys</h1>
+        <p class="description">Recruit other pirate ships and expand your high seas navy!<br><br>Lead your convoy through uncharted waters.<br><br>How far can you go until you crash?</p>
+        <button id="play-button">Play</button>
+        <div id="options">
+            <h2 class="pixel-font">Game Options (TBA)</h2>
+            <button class="option" data-rounds="1">1 Ship</button>
+            <button class="option" data-rounds="1">3 Ships</button>
+            <button class="option" data-rounds="1">5 Ships</button>
         </div>
     </div>
-    
-    <canvas id="gameCanvas" class="game-canvas"></canvas>
-
-    <div id="endScreen" class="end-screen" style="display: none;">
-        <h1>Game Over</h1>
-        <p id="score">Score: 0</p>
-        <button onclick="returnToMenu()">Return to Menu</button>
+    <div id="game-screen" class="hidden">
+        <div id="score" class="pixel-font">1</div>
+        <canvas id="game-canvas"></canvas>
     </div>
-
+    <div id="end-screen" class="hidden">
+        <h1 class="pixel-font" id="end-message"></h1>
+        <button id="restart-button">Play Again</button>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
