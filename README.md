@@ -6,9 +6,9 @@ Your favorite classic arcade games redesigned!
 ## List of all games:
 - Cannonpong (Pong)
 - Convoys (Snake)
+- Treasure Frenzy (Minesweeper)
 
 ## COMING SOON:
-- Treasure Frenzy (Minesweeper)
 - Rogue Pirates (Space Invaders)
 - Pirate Booty Chase (Pacman)
 - AND MORE!
