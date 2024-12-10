@@ -39,6 +39,7 @@ function startGame() {
     spawnInterval = setInterval(spawnCannonball, difficultySettings[difficulty].spawnRate);
     gameInterval = setInterval(updateGame, 16);
     document.addEventListener("mousemove", updateMousePosition);
+    returnButton.classList.add("hidden");
 }
 
 // Reset the game

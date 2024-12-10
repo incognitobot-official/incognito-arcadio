@@ -7,10 +7,12 @@ Your favorite classic arcade games redesigned!
 - Cannonpong (Pong)
 - Convoys (Snake)
 - Treasure Frenzy (Minesweeper)
+- Cannonball! (Asteroids)
 
 ## COMING SOON:
 - Rogue Pirates (Space Invaders)
 - Pirate Booty Chase (Pacman)
+- Treasure Dive (tbd)
 - AND MORE!
 
 ![alt preview](https://github.com/incognitobot-official/highseas-arcade/blob/main/preview.png?raw=true)
