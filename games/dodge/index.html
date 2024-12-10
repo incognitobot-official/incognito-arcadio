@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ship Dodge Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="../../index.html" id="return-home-btn">Home</a>
+    <div id="main-menu">
+        <h1 class="pixel-font">Cannonball!</h1>
+        <p class="description">Dodge enemy cannonballs!<br>Protect your ship from destruction.<br>How long can you last?</p>
+        <div id="options">
+            <h2 class="pixel-font">Game Options</h2>
+            <button class="option" data-difficulty="easy">Easy</button>
+            <button class="option" data-difficulty="medium">Medium</button>
+            <button class="option" data-difficulty="hard">Hard</button>
+        </div>
+    </div>
+    <div id="game-container" class="hidden">
+        <div id="score-display" class="pixel-font">Score: 0</div>
+        <img id="ship" src="assets/ship.png" alt="Player Ship">
+    </div>
+    <div id="end-screen" class="hidden">
+            <h1>Game Over!</h1>
+            <p class="final-score">Score: 0</p>
+            <button onclick="location.reload()">Restart</button>
+        </div>
+    </div>
+         
+    <script src="script.js"></script>
+</body>
+</html>

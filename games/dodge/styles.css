@@ -1,0 +1,201 @@
+@font-face {
+    font-family: "Pixel";
+    src: url("../../press-start-2p.woff2") format("woff2");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('assets/sea.png');
+    background-size: cover;
+    background-position: center;
+    font-family: "Pixel", sans-serif;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.pixel-font {
+    font-family: "Pixel", sans-serif;
+    text-shadow: 2px 2px 5px black;
+}
+
+#main-menu {
+    text-align: center;
+}
+
+button {
+    background-color: #8B4513;
+    color: white;
+    border: 2px solid black;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 5px;
+    font-family: "Pixel", sans-serif;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #A0522D;
+}
+
+/* Additional styles for the new game mechanic */
+#score-display {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: white;
+    z-index: 20;
+}
+
+#ship {
+    position: absolute;
+    width: 60px;
+    height: auto;
+    z-index: 10;
+    pointer-events: none;
+}
+
+
+#game-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh; /* Ensure it occupies the full screen height */
+    overflow: hidden;
+}
+
+#game-board {
+    display: grid;
+    border: 2px solid black;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+}
+
+
+.tile {
+    width: 40px;
+    height: 40px;
+    background-image: url('assets/sand.png');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+}
+
+.tile.clicked {
+    background-image: url('assets/dirt.png'); /* Default to dirt background */
+}
+
+.tile.mine {
+    background-image:  url('assets/crab.png');
+    background-size: cover, contain;
+    background-position: center;
+}
+
+.description {
+    font-family: 'Pixel', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(45deg, #ff2c2c, #ffb700, #ff1818, #ffea00);
+    background-size: 400% 400%; 
+    -webkit-background-clip: text; 
+    color: transparent; 
+    line-height: 2;
+    animation: gradientAnimation 4s ease infinite; 
+}
+
+/* Define the keyframes for the gradient animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+#end-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+}
+
+
+.cannonball {
+    position: absolute;
+    width: 30px; /* Smaller size */
+    height: 30px;
+    background-image: url('assets/cannonball.png');
+    background-size: cover;
+    z-index: 10;
+}
+
+
+
+.hidden {
+    display: none !important; /* Ensure it overrides other display rules */
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+#return-home-btn {
+    font-family: 'Pixel', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 12px 24px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 20;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#return-home-btn:hover {
+    background-color: #f7c8b0;
+    transform: scale(1.1);
+}
+
+#return-home-btn:active {
+    background-color: #ff6b6b;
+    transform: scale(0.95);
+}
+
+#ship.exploded {
+    transform: scale(2); /* Double the size of the explosion image */
+}
