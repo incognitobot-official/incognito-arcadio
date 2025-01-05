@@ -1,0 +1,193 @@
+@font-face {
+    font-family: "Pixel";
+    src: url("../../press-start-2p.woff2") format("woff2");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('assets/background.png');
+    background-size: cover;
+    background-position: center;
+    font-family: "Pixel", sans-serif;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.pixel-font {
+    font-family: "Pixel", sans-serif;
+    text-shadow: 2px 2px 5px black;
+}
+
+#main-menu {
+    text-align: center;
+}
+
+.description {
+    font-family: 'Pixel', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(45deg, #c7ab65, #00d5ff, #ffea00, #000000);
+    background-size: 400% 400%; 
+    -webkit-background-clip: text; 
+    color: transparent; 
+    line-height: 2;
+    animation: gradientAnimation 4s ease infinite; 
+}
+
+/* Define the keyframes for the gradient animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+button {
+    background-color: #8B4513;
+    color: white;
+    border: 2px solid black;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 5px;
+    font-family: "Pixel", sans-serif;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #A0522D;
+}
+
+#score-display {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: white;
+    z-index: 20;
+}
+
+#bag {
+    position: absolute;
+    width: 60px;
+    height: auto;
+    z-index: 10;
+    pointer-events: none;
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.coin, .gem, .bomb {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 60px; /* Adjust size */
+    height: 60px; /* Adjust size */
+}
+
+.bomb {
+    background-image: url('assets/bomb.png');
+    aspect-ratio: auto;
+}
+
+.coin {
+    background-image: url('assets/coin.png');
+}
+
+.gem {
+    background-image: url('assets/gem.png');
+}
+
+#bag {
+    width: 100px; /* Bigger bag */
+    height: auto;
+}
+
+
+/* Ensure the game over screen is hidden initially */
+#end-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    display: none; /* Hidden initially */
+    z-index: 100;
+}
+
+#end-screen.hidden {
+    display: none; /* Ensure it remains hidden when the class is applied */
+}
+
+
+#restart-btn {
+    font-family: 'Pixel', sans-serif;
+    font-size: 24px;
+    padding: 12px 24px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#restart-btn:hover {
+    background-color: #f7c8b0;
+    transform: scale(1.1);
+}
+
+#restart-btn:active {
+    background-color: #ff6b6b;
+    transform: scale(0.95);
+}
+
+#return-home-btn {
+    font-family: 'Pixel', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 12px 24px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 20;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#return-home-btn:hover {
+    background-color: #f7c8b0;
+    transform: scale(1.1);
+}
+
+#return-home-btn:active {
+    background-color: #ff6b6b;
+    transform: scale(0.95);
+}

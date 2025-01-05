@@ -8,6 +8,7 @@ Your favorite classic arcade games redesigned!
 - Convoys (Snake)
 - Treasure Frenzy (Minesweeper)
 - Cannonball! (Asteroids)
+- Booty Drop (Kaboom!)
 
 ## COMING SOON:
 - Rogue Pirates (Space Invaders)

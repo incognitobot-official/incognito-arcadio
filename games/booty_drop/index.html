@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collector Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="../../index.html" id="return-home-btn">Home</a>
+    <div id="main-menu">
+        <h1 class="pixel-font">Booty Drop!</h1>
+        <p class="description">The Goddess of Wealth has blessesd you!<br>Collect treasures with your trusty bag while dodging bombs.<br>But beware—don’t let any treasure fall into the void, or else…</p>
+        <div id="options">
+            <h2 class="pixel-font">Game Options</h2>
+            <button class="option" data-difficulty="easy">Easy</button>
+            <button class="option" data-difficulty="medium">Medium</button>
+            <button class="option" data-difficulty="hard">Hard</button>
+        </div>
+    </div>
+    <div id="game-container" class="hidden">
+        <div id="score-display" class="pixel-font">Score: 0</div>
+        <img id="bag" src="assets/bag.png" alt="Player Bag">
+    </div>
+    <div id="end-screen" class="hidden">
+        <h1>Game Over!</h1>
+        <p class="final-score">Final Score: 0</p>
+        <button id="restart-btn" onclick="location.reload()">Restart</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

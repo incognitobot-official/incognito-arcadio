@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="../../index.html" id="return-home-btn">Home</a>
+    <div id="main-menu">
+        <h1 class="pixel-font">Pac-Man</h1>
+        <p class="description">Eat all the pellets and avoid the ghosts!</p>
+        <div id="options">
+            <button class="option" onclick="startGame()">Start Game</button>
+        </div>
+    </div>
+    <div id="game-container" class="hidden">
+        <div id="game-board"></div>
+        <div id="end-screen" class="hidden">
+            <div class="overlay"></div>
+            <div class="content pixel-font">
+                <h1>Game Over</h1>
+                <p class="final-score"></p>
+                <button onclick="location.reload()">Restart</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
