@@ -9,6 +9,7 @@ Your favorite classic arcade games redesigned!
 - Treasure Frenzy (Minesweeper)
 - Cannonball! (Asteroids)
 - Booty Drop (Kaboom!)
+- High Seas Chase (Highway Rider)
 
 ## COMING SOON:
 - Rogue Pirates (Space Invaders)

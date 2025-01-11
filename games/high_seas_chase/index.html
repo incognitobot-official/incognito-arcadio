@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High Seas Chase</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="../../index.html" id="return-home-btn">Home</a>
+    <div id="main-menu">
+        <h1 class="pixel-font">High Seas Chase</h1>
+        <p class="description">Navigate the high seas!<br>Dodge enemy ships!<br>Survive for as long as you can!</p>
+        <button id="start-button">Start Chase</button>
+    </div>
+    <canvas id="gameCanvas"></canvas>
+    <div id="end-screen" class="hidden">
+        <h1 class="pixel-font">Game Over!</h1>
+        <p class="final-score">You survived for <span id="final-score">0</span> seconds.</p>
+        <button id="restart-btn" onclick="location.reload()">Restart</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
